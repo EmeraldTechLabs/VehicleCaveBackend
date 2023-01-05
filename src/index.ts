@@ -45,6 +45,9 @@ const server = new ApolloServer({ schema });
 
 await startStandaloneServer(server, {
   listen: { port: 4000 },
+  context: (params: any) => {
+    return params;
+  },
 }).then((res) => console.log(res));
 
 const DB_PORT = process.env.DB_PORT || "";

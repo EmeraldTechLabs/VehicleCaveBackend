@@ -12,9 +12,9 @@ export const resolvers = {
       // const userbyId = await user.findById(id);
     },
   },
-  // Mutation: {
-  //   createUser: async (_root: any, { users }: any) => {
-  //     const userss = await user.create({ users });
-  //   },
-  // },
+  Mutation: {
+    createUser: async (_root: any, { users }: any, { auth }: any) => {
+      const userss = await user.create({ users });
+    },
+  },
 };
