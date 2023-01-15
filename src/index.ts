@@ -32,15 +32,6 @@ const schema = makeExecutableSchema({
   ],
 });
 
-let jwtSecretKey = process.env.JWT_SECRET_KEY;
-let data = {
-  time: Date(),
-  userId: 12,
-};
-const token = jsonwebtoken.sign(data, "hujikolp");
-const verified = jsonwebtoken.verify(token, "hujikolp");
-console.log(verified, token);
-
 const server = new ApolloServer({ schema });
 
 await startStandaloneServer(server, {
