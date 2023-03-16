@@ -5,6 +5,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { resolvers as userResolver } from "./resolvers/userResolver";
 //typedefs
 import { typeDefs as usertypeDefs } from "./typeDefs/userTypeDefs";
+import mongoose from "mongoose";
 
 const schema = makeExecutableSchema({
   typeDefs: [usertypeDefs],
@@ -20,5 +21,5 @@ await startStandaloneServer(server, {
   },
 }).then((res) => console.log(res));
 
-// const DB_PORT = process.env.DB_PORT || "";
-// mongoose.connect(DB_PORT, {}).then(() => console.log("Connected!"));
+const DB_PORT = process.env.DB_PORT || "";
+mongoose.connect(DB_PORT, {}).then(() => console.log("Connected!"));
